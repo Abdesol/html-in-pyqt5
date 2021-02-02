@@ -1,26 +1,27 @@
-from PyQt5.QtWidgets import QWidget, QMainWindow, QVBoxLayout, QApplication
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-
-class HtmlPyqt(QMainWindow):
+import sys
+from PyQt5.Qt import *
+from PyQt5.QtWebEngineWidgets import *
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
+import os
+ 
+class htmlPyQt(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("HtmlPyQt")
+        #self.resize(800, 600)
 
-        self.setWindowTitle("HtmlPyqt")
-        self.centralWidget = QWidget(self)
-        self.lay = QVBoxLayout(self.centralWidget)
+        self.centralwidget = QWidget()
+        self.lay = QVBoxLayout(self.centralwidget)
 
-        self.html_view = QWebEngineView() # this is the root line :)
+        self.html_view = QWebEngineView()
         self.lay.addWidget(self.html_view)
 
-        with open('index.html','r') as i:
-            html = i.read()
-            self.html_view.setHTML(html)
+        self.html_view.load(QUrl.fromLocalFile(os.path.abspath('my_portfolio/index.html')))
+        self.setCentralWidget(self.centralwidget)
 
 if __name__ == '__main__':
-    import sys
     app = QApplication(sys.argv)
-    window = HtmlPyqt()
-
+    mainwindow = htmlPyQt()
+    mainwindow.show()
     sys.exit(app.exec_())
-    
 
