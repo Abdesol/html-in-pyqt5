@@ -23,7 +23,7 @@ cd html-in-pyqt5
 pip install -r requirements.txt
 
 # What are you waiting for?
-pythonw Main.py
+python Main.py
 ```
 
 ## Have a nice time
