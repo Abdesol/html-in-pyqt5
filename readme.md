@@ -17,7 +17,7 @@ You will be only needed to add your html file directory to your python file and 
 git clone https://github.com/Abdesol/html-in-pyqt5
 
 #Cd into the directory
-cd html in PyQt5
+cd html-in-pyqt5
 
 # Install the requirements (Install all the dependencies, might take time depending on your internet speed)
 pip install -r requirements.txt
